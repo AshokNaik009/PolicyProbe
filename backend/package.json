@@ -1,0 +1,32 @@
+{
+  "name": "policy-probe-backend",
+  "version": "1.0.0",
+  "description": "PolicyProbe V2 Backend API",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "setup:schema": "tsx scripts/setup-schema.ts",
+    "ingest": "tsx scripts/ingest.ts",
+    "test:query": "tsx scripts/test-query.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "weaviate-ts-client": "^2.1.0",
+    "groq-sdk": "^0.3.0",
+    "cohere-ai": "^7.7.0",
+    "mongodb": "^6.3.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.11.0",
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0"
+  }
+}

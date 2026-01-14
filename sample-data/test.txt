@@ -1,0 +1,251 @@
+# TechCorp Software Services Agreement
+
+## Preamble
+
+This Software Services Agreement ("Agreement") is entered into as of the Effective Date between TechCorp Inc. ("Provider") and the Customer ("Client"). This Agreement governs the provision of software services, support, and maintenance.
+
+The purpose of this Agreement is to establish clear terms regarding service delivery, obligations, limitations, and dispute resolution mechanisms. Both parties acknowledge that they have read, understood, and agree to be bound by the terms and conditions set forth herein.
+
+This Agreement supersedes all prior agreements, whether written or oral, relating to the subject matter herein.
+
+## 1. Definitions
+
+### 1.1 Service Terms
+
+For purposes of this Agreement, the following terms shall have the meanings set forth below:
+
+"Services" means the software development, maintenance, support, and related professional services provided by Provider to Client as described in the applicable Statement of Work.
+
+"Software" means any and all computer programs, code, scripts, or applications developed or provided by Provider under this Agreement, including all updates, modifications, and derivative works.
+
+"Deliverables" means all documents, work products, materials, and other items that Provider is required to deliver to Client under this Agreement.
+
+### 1.2 Financial Terms
+
+"Fees" means all amounts payable by Client to Provider for Services rendered under this Agreement as specified in the applicable Statement of Work or invoice.
+
+"Expenses" means reasonable, pre-approved, out-of-pocket costs incurred by Provider in performing Services, including travel, lodging, and materials.
+
+"Excluded Damages" means indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, loss of revenue, loss of data, loss of business opportunity, or costs of procurement of substitute services.
+
+## 2. Service Delivery
+
+### 2.1 Scope of Services
+
+Provider agrees to perform Services as described in each Statement of Work executed by both parties. Each Statement of Work shall specify the scope, timeline, deliverables, and fees for the particular engagement.
+
+Provider shall use commercially reasonable efforts to meet all deadlines specified in the Statement of Work. Any delays caused by Client's failure to provide necessary information or approvals shall extend the timeline accordingly.
+
+Provider reserves the right to use subcontractors to perform Services, provided that Provider remains responsible for the subcontractor's performance.
+
+### 2.2 Service Standards
+
+All Services shall be performed in a professional and workmanlike manner consistent with industry standards. Provider warrants that Services will materially conform to the specifications in the applicable Statement of Work for a period of thirty (30) days following delivery.
+
+Client's exclusive remedy for any breach of this warranty is for Provider to re-perform the non-conforming Services at no additional charge to Client.
+
+### 2.3 Client Responsibilities
+
+Client shall provide Provider with timely access to Client personnel, systems, and information reasonably necessary for Provider to perform the Services. Client shall designate a primary contact person with authority to make decisions regarding the Services.
+
+Client is responsible for the accuracy and completeness of all information, data, and materials provided to Provider. Provider shall not be liable for any errors or defects in Deliverables caused by Client-supplied information.
+
+## 3. Intellectual Property Rights
+
+### 3.1 Ownership of Deliverables
+
+Upon Client's payment in full of all applicable Fees, Provider hereby assigns to Client all right, title, and interest in and to the custom Deliverables specifically created for Client under a Statement of Work.
+
+This assignment excludes Provider's pre-existing intellectual property, third-party components, and Provider's general knowledge, skills, and experience.
+
+### 3.2 Provider Tools and Materials
+
+Provider retains all rights to its pre-existing tools, methodologies, templates, and general know-how used in performing Services. Client receives a non-exclusive license to use such materials solely as incorporated in the Deliverables.
+
+Provider may use Client's project as a reference in marketing materials and case studies, subject to Client's prior written approval.
+
+## 4. Fees and Payment
+
+### 4.1 Fee Structure
+
+Client shall pay Provider the Fees specified in each Statement of Work. Unless otherwise stated, Fees are quoted in U.S. dollars and exclude applicable taxes.
+
+For time-and-materials engagements, Provider shall invoice Client monthly based on hours worked at the rates specified in the Statement of Work. For fixed-price engagements, Provider shall invoice according to the milestone schedule in the Statement of Work.
+
+### 4.2 Payment Terms
+
+All invoices are due and payable within thirty (30) days of the invoice date. Late payments shall accrue interest at the rate of 1.5% per month or the maximum rate permitted by law, whichever is less.
+
+If Client fails to pay any undisputed invoice within forty-five (45) days of the invoice date, Provider may suspend Services until all outstanding amounts are paid in full.
+
+### 4.3 Expenses
+
+Client shall reimburse Provider for pre-approved Expenses incurred in connection with Services. Provider shall submit expense reports with reasonable documentation within thirty (30) days of incurring the Expenses.
+
+## 5. Confidentiality
+
+### 5.1 Confidential Information
+
+Each party acknowledges that it may receive confidential and proprietary information of the other party ("Confidential Information"). Confidential Information includes technical data, business information, product plans, customer lists, and other non-public information.
+
+The receiving party agrees to protect Confidential Information with the same degree of care it uses to protect its own confidential information, but in no event less than reasonable care.
+
+### 5.2 Exclusions
+
+Confidential Information does not include information that: (a) is or becomes publicly available through no fault of the receiving party; (b) is rightfully received from a third party without breach of confidentiality obligations; (c) is independently developed by the receiving party without use of Confidential Information; or (d) is required to be disclosed by law.
+
+### 5.3 Duration
+
+The obligations in this Section shall survive termination of this Agreement and continue for a period of three (3) years from the date of disclosure of the Confidential Information.
+
+## 6. Warranties and Disclaimers
+
+### 6.1 Limited Warranty
+
+Provider warrants that Services will be performed in a professional and workmanlike manner. Client's exclusive remedy for breach of this warranty is re-performance of the deficient Services.
+
+Provider does not warrant that Services will be uninterrupted or error-free, or that all defects will be corrected.
+
+### 6.2 Disclaimer
+
+EXCEPT AS EXPRESSLY PROVIDED IN THIS AGREEMENT, PROVIDER MAKES NO WARRANTIES, EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+
+Provider does not warrant that Software will meet Client's requirements or that operation of Software will be uninterrupted or error-free.
+
+## 7. Limitation of Liability
+
+### 7.1 General Limitations
+
+TO THE MAXIMUM EXTENT PERMITTED BY LAW, PROVIDER'S TOTAL LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED THE FEES PAID BY CLIENT TO PROVIDER IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO LIABILITY.
+
+This limitation applies regardless of the legal theory of liability, whether in contract, tort, negligence, strict liability, or otherwise.
+
+### 7.2 Excluded Damages
+
+IN NO EVENT SHALL PROVIDER BE LIABLE FOR ANY EXCLUDED DAMAGES, EVEN IF PROVIDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+Some jurisdictions do not allow the exclusion or limitation of incidental or consequential damages, so the above limitation may not apply to Client.
+
+### 7.3 Exceptions
+
+The limitations in this Section do not apply to: (a) Provider's obligations under Section 8 (Indemnification); (b) Provider's gross negligence or willful misconduct; or (c) claims for breach of confidentiality obligations under Section 5.
+
+## 8. Indemnification
+
+### 8.1 Provider Indemnification
+
+Provider shall defend, indemnify, and hold harmless Client from any third-party claims alleging that the Deliverables infringe any patent, copyright, or trademark of such third party.
+
+Provider's indemnification obligation is conditioned on Client: (a) promptly notifying Provider in writing of the claim; (b) granting Provider sole control of the defense and settlement; and (c) providing reasonable assistance in the defense.
+
+### 8.2 Indemnification Limits
+
+Provider's indemnification obligation does not apply to claims arising from: (a) Client's modification of Deliverables; (b) Client's combination of Deliverables with other products or services; (c) Client's use of Deliverables outside the scope authorized by this Agreement; or (d) Client-supplied materials or specifications.
+
+In the event of an infringement claim, Provider may, at its option: (i) obtain the right for Client to continue using the Deliverables; (ii) replace or modify the Deliverables to make them non-infringing; or (iii) terminate the applicable Statement of Work and refund pro-rata Fees paid for the infringing Deliverables.
+
+### 8.3 Client Indemnification
+
+Client shall defend, indemnify, and hold harmless Provider from any claims arising from: (a) Client's use of Deliverables in violation of this Agreement; (b) Client-supplied materials or data; or (c) Client's breach of any representation or warranty in this Agreement.
+
+### 8.4 Exclusive Remedy
+
+This Section 8 states the indemnifying party's sole liability and the indemnified party's exclusive remedy for any claim of intellectual property infringement.
+
+## 9. Term and Termination
+
+### 9.1 Term
+
+This Agreement commences on the Effective Date and continues until terminated by either party as provided herein. Each Statement of Work shall have its own term as specified therein.
+
+### 9.2 Termination for Convenience
+
+Either party may terminate this Agreement or any Statement of Work for convenience upon thirty (30) days' prior written notice to the other party.
+
+In the event of termination for convenience, Client shall pay Provider for all Services performed and Expenses incurred up to the effective date of termination, plus a reasonable wind-down fee.
+
+### 9.3 Termination for Cause
+
+Either party may terminate this Agreement immediately upon written notice if the other party materially breaches this Agreement and fails to cure such breach within thirty (30) days after receiving written notice of the breach.
+
+Either party may terminate this Agreement immediately if the other party becomes insolvent, files for bankruptcy, or makes an assignment for the benefit of creditors.
+
+### 9.4 Effect of Termination
+
+Upon termination, Client shall immediately pay all outstanding Fees and Expenses. Provider shall deliver all completed Deliverables and work-in-progress to Client.
+
+Sections 3 (Intellectual Property Rights), 5 (Confidentiality), 6 (Warranties and Disclaimers), 7 (Limitation of Liability), 8 (Indemnification), and 11 (General Provisions) shall survive termination of this Agreement.
+
+## 10. Data Protection and Privacy
+
+### 10.1 Data Processing
+
+To the extent Provider processes any personal data on behalf of Client, Provider shall comply with all applicable data protection laws, including the General Data Protection Regulation (GDPR) and California Consumer Privacy Act (CCPA).
+
+Provider shall implement appropriate technical and organizational measures to protect personal data against unauthorized or unlawful processing and against accidental loss, destruction, or damage.
+
+### 10.2 Data Breach Notification
+
+Provider shall notify Client without undue delay upon becoming aware of any unauthorized access to or disclosure of personal data processed under this Agreement.
+
+Provider shall cooperate with Client in investigating and remediating any data breach, including providing reasonable assistance in notifying affected individuals and regulatory authorities as required by law.
+
+### 10.3 Data Retention and Deletion
+
+Upon termination of this Agreement or at Client's written request, Provider shall return or securely delete all personal data in its possession, except to the extent Provider is required by law to retain such data.
+
+## 11. General Provisions
+
+### 11.1 Governing Law
+
+This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflicts of law principles.
+
+Any legal action or proceeding arising under this Agreement shall be brought exclusively in the federal or state courts located in Wilmington, Delaware, and the parties hereby consent to personal jurisdiction and venue therein.
+
+### 11.2 Entire Agreement
+
+This Agreement, together with all Statements of Work executed hereunder, constitutes the entire agreement between the parties regarding the subject matter hereof and supersedes all prior or contemporaneous understandings or agreements, whether written or oral.
+
+No modification or amendment to this Agreement shall be effective unless in writing and signed by authorized representatives of both parties.
+
+### 11.3 Severability
+
+If any provision of this Agreement is held to be invalid or unenforceable, the remaining provisions shall continue in full force and effect. The invalid provision shall be modified to the minimum extent necessary to make it valid and enforceable.
+
+### 11.4 Waiver
+
+No waiver of any provision of this Agreement shall be deemed or shall constitute a waiver of any other provision, nor shall any waiver constitute a continuing waiver.
+
+A party's failure to enforce any provision of this Agreement shall not be construed as a waiver of the right to enforce such provision in the future.
+
+### 11.5 Force Majeure
+
+Neither party shall be liable for any failure or delay in performance due to causes beyond its reasonable control, including acts of God, war, terrorism, pandemics, natural disasters, government actions, or labor disputes.
+
+The affected party shall promptly notify the other party of the force majeure event and shall use reasonable efforts to minimize the impact of the delay.
+
+### 11.6 Assignment
+
+Neither party may assign this Agreement without the prior written consent of the other party, except that either party may assign this Agreement to a successor in connection with a merger, acquisition, or sale of all or substantially all of its assets.
+
+Any attempted assignment in violation of this Section shall be null and void.
+
+### 11.7 Notices
+
+All notices under this Agreement shall be in writing and delivered by email, courier, or certified mail to the addresses specified in the applicable Statement of Work or as otherwise designated by a party in writing.
+
+Notices shall be deemed effective upon receipt or, in the case of email, upon confirmation of successful transmission.
+
+### 11.8 Independent Contractors
+
+The parties are independent contractors. This Agreement does not create a partnership, joint venture, employment, or agency relationship between the parties.
+
+Neither party has authority to bind or commit the other party in any manner whatsoever.
+
+### 11.9 Export Compliance
+
+Client shall comply with all applicable export control laws and regulations in connection with its use of Deliverables and Software. Client shall not export or re-export Deliverables to any prohibited country or entity.
+
+### 11.10 Publicity
+
+Neither party shall issue any press release or make any public statement regarding this Agreement without the prior written approval of the other party, except as required by law.
