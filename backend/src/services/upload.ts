@@ -1,0 +1,125 @@
+import * as fs from 'fs';
+import { StructuralChunker } from './chunking';
+import { IngestionService } from './ingestion';
+import { getWeaviateClient, POLICY_SEGMENT_CLASS, getPolicySegmentSchema } from '../config/weaviate';
+
+export interface UploadProgress {
+  stage: 'parsing' | 'chunking' | 'ingesting' | 'complete' | 'error';
+  message: string;
+  progress?: number;
+  totalChunks?: number;
+  error?: string;
+}
+
+export class UploadService {
+  private chunker = new StructuralChunker();
+  private ingestionService = new IngestionService();
+
+  /**
+   * Process uploaded file and ingest to Weaviate
+   */
+  async processUpload(filePath: string, clearExisting: boolean = false): Promise<{
+    success: boolean;
+    totalChunks: number;
+    message: string;
+    error?: string;
+  }> {
+    try {
+      console.log(`📄 Processing uploaded file: ${filePath}`);
+
+      // Ensure schema exists
+      const client = getWeaviateClient();
+      const schema = await client.schema.getter().do();
+      const classExists = schema.classes?.some((c: any) => c.class === POLICY_SEGMENT_CLASS);
+
+      if (!classExists) {
+        console.log('   Creating schema...');
+        await client.schema.classCreator().withClass(getPolicySegmentSchema()).do();
+      }
+
+      // Clear existing data if requested
+      if (clearExisting) {
+        console.log('🗑️  Clearing existing data...');
+        try {
+          await client.schema.classDeleter().withClassName(POLICY_SEGMENT_CLASS).do();
+          await client.schema.classCreator().withClass(getPolicySegmentSchema()).do();
+          console.log('   ✓ Data cleared');
+        } catch (err) {
+          console.log('   No existing data to clear');
+        }
+      }
+
+      // Read file content
+      const content = fs.readFileSync(filePath, 'utf-8');
+      console.log(`   Size: ${(content.length / 1024).toFixed(2)} KB`);
+
+      // Chunk the document
+      console.log('✂️  Chunking document...');
+      const chunks = this.chunker.chunkDocument(content);
+      console.log(`   Created ${chunks.length} chunks`);
+
+      // Ingest chunks
+      console.log('📤 Ingesting to Weaviate...');
+      await this.ingestionService.ingestChunks(chunks);
+
+      // Verify
+      const count = await this.ingestionService.getCount();
+      console.log(`✅ Upload complete! Total chunks: ${count}`);
+
+      // Clean up uploaded file
+      fs.unlinkSync(filePath);
+
+      return {
+        success: true,
+        totalChunks: chunks.length,
+        message: `Successfully ingested ${chunks.length} chunks from document`,
+      };
+    } catch (error) {
+      console.error('Upload processing error:', error);
+
+      // Clean up file on error
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath);
+      }
+
+      return {
+        success: false,
+        totalChunks: 0,
+        message: 'Failed to process document',
+        error: error instanceof Error ? error.message : 'Unknown error',
+      };
+    }
+  }
+
+  /**
+   * Validate uploaded file
+   */
+  validateFile(file: Express.Multer.File): { valid: boolean; error?: string } {
+    // Check file size (max 10MB)
+    const maxSize = 10 * 1024 * 1024; // 10MB
+    if (file.size > maxSize) {
+      return {
+        valid: false,
+        error: 'File size exceeds 10MB limit',
+      };
+    }
+
+    // Check file type
+    const allowedMimeTypes = ['text/plain', 'text/markdown', 'application/octet-stream'];
+    const allowedExtensions = ['.txt', '.md', '.markdown'];
+
+    const hasValidMimeType = allowedMimeTypes.includes(file.mimetype);
+    const hasValidExtension = allowedExtensions.some(ext =>
+      file.originalname.toLowerCase().endsWith(ext)
+    );
+
+    if (!hasValidMimeType && !hasValidExtension) {
+      return {
+        valid: false,
+        error: 'Invalid file type. Only .txt and .md files are supported',
+      };
+    }
+
+    return { valid: true };
+  }
+}

@@ -42,6 +42,10 @@ coverage/
 *.tmp
 .cache/
 
+# Uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+
 # OS files
 Thumbs.db
 .Spotlight-V100

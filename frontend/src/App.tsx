@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { QueryBar } from './components/QueryBar';
 import { AnswerDisplay } from './components/AnswerDisplay';
 import { ContextCard } from './components/ContextCard';
+import { DocumentUpload } from './components/DocumentUpload';
 import { policyApi } from './services/api';
 import { QueryResponse, Stats } from './types';
 
@@ -10,6 +11,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [stats, setStats] = useState<Stats | null>(null);
+  const [showUpload, setShowUpload] = useState(false);
 
   useEffect(() => {
     loadStats();
@@ -41,6 +43,15 @@ function App() {
     }
   };
 
+  const handleUploadSuccess = () => {
+    // Reload stats after successful upload
+    loadStats();
+    // Close upload modal after a delay
+    setTimeout(() => {
+      setShowUpload(false);
+    }, 2000);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -53,22 +64,52 @@ function App() {
                 High-Fidelity Structural Knowledge Retrieval
               </p>
             </div>
-            {stats && stats.total_chunks !== undefined && (
-              <div className="text-right">
-                <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">
-                  Indexed Chunks
+            <div className="flex items-center gap-6">
+              <button
+                onClick={() => setShowUpload(!showUpload)}
+                className="px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-colors"
+              >
+                <span className="flex items-center gap-2">
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                    />
+                  </svg>
+                  Upload Document
+                </span>
+              </button>
+              {stats && stats.total_chunks !== undefined && (
+                <div className="text-right">
+                  <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">
+                    Indexed Chunks
+                  </div>
+                  <div className="text-2xl font-bold text-primary-600">
+                    {stats.total_chunks.toLocaleString()}
+                  </div>
                 </div>
-                <div className="text-2xl font-bold text-primary-600">
-                  {stats.total_chunks.toLocaleString()}
-                </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 py-8">
+        {/* Upload Document Section */}
+        {showUpload && (
+          <div className="mb-8">
+            <DocumentUpload onUploadSuccess={handleUploadSuccess} />
+          </div>
+        )}
+
         {/* Query Bar */}
         <div className="mb-8">
           <QueryBar onSearch={handleSearch} isLoading={isLoading} />
