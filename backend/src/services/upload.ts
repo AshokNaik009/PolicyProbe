@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import * as pdfParse from 'pdf-parse';
+import { PDFExtract } from 'pdf.js-extract';
 import { StructuralChunker } from './chunking';
 import { IngestionService } from './ingestion';
 import { getWeaviateClient, POLICY_SEGMENT_CLASS, getPolicySegmentSchema } from '../config/weaviate';
@@ -21,9 +21,21 @@ export class UploadService {
    */
   private async extractPdfText(filePath: string): Promise<string> {
     try {
-      const dataBuffer = fs.readFileSync(filePath);
-      const data = await pdfParse(dataBuffer);
-      return data.text;
+      const pdfExtract = new PDFExtract();
+      const options = {}; // Default options work well
+      const data = await pdfExtract.extract(filePath, options);
+
+      // Extract text from all pages
+      let fullText = '';
+      for (const page of data.pages) {
+        // Extract text from each item on the page
+        const pageText = page.content
+          .map((item: any) => item.str)
+          .join(' ');
+        fullText += pageText + '\n\n';
+      }
+
+      return fullText.trim();
     } catch (error) {
       console.error('PDF parsing error:', error);
       throw new Error('Failed to extract text from PDF');

@@ -20,7 +20,7 @@
     "groq-sdk": "^0.3.0",
     "mongodb": "^6.3.0",
     "multer": "^2.0.2",
-    "pdf-parse": "^2.4.5",
+    "pdf.js-extract": "^0.2.1",
     "uuid": "^9.0.1",
     "weaviate-ts-client": "^2.1.0"
   },
