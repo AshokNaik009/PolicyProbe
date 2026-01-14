@@ -21,6 +21,8 @@ function App() {
       setStats(data);
     } catch (err) {
       console.error('Failed to load stats:', err);
+      // Set default stats if backend is not reachable
+      setStats({ total_chunks: 0, class_name: 'PolicySegment' });
     }
   };
 
@@ -51,7 +53,7 @@ function App() {
                 High-Fidelity Structural Knowledge Retrieval
               </p>
             </div>
-            {stats && (
+            {stats && stats.total_chunks !== undefined && (
               <div className="text-right">
                 <div className="text-xs font-medium text-gray-500 uppercase tracking-wide">
                   Indexed Chunks

@@ -144,7 +144,11 @@ Provide a clear, accurate answer based only on the context above. Cite your sour
       };
     } catch (error) {
       console.error('Stats error:', error);
-      return { error: 'Failed to get statistics' };
+      return {
+        total_chunks: 0,
+        class_name: POLICY_SEGMENT_CLASS,
+        error: 'Failed to get statistics',
+      };
     }
   }
 }
