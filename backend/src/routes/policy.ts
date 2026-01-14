@@ -95,7 +95,11 @@ router.post('/upload', upload.single('file'), async (req: Request, res: Response
     const clearExisting = req.body.clearExisting === 'true';
 
     // Process the uploaded file
-    const result = await uploadService.processUpload(req.file.path, clearExisting);
+    const result = await uploadService.processUpload(
+      req.file.path,
+      req.file.originalname,
+      clearExisting
+    );
 
     if (result.success) {
       res.json(result);

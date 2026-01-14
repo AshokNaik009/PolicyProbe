@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as pdfParse from 'pdf-parse';
 import { StructuralChunker } from './chunking';
 import { IngestionService } from './ingestion';
 import { getWeaviateClient, POLICY_SEGMENT_CLASS, getPolicySegmentSchema } from '../config/weaviate';
@@ -16,9 +17,38 @@ export class UploadService {
   private ingestionService = new IngestionService();
 
   /**
+   * Extract text from PDF file
+   */
+  private async extractPdfText(filePath: string): Promise<string> {
+    try {
+      const dataBuffer = fs.readFileSync(filePath);
+      const data = await pdfParse(dataBuffer);
+      return data.text;
+    } catch (error) {
+      console.error('PDF parsing error:', error);
+      throw new Error('Failed to extract text from PDF');
+    }
+  }
+
+  /**
+   * Read file content based on file type
+   */
+  private async readFileContent(filePath: string, originalName: string): Promise<string> {
+    const isPdf = originalName.toLowerCase().endsWith('.pdf');
+
+    if (isPdf) {
+      console.log('   Extracting text from PDF...');
+      return await this.extractPdfText(filePath);
+    } else {
+      // Plain text or markdown
+      return fs.readFileSync(filePath, 'utf-8');
+    }
+  }
+
+  /**
    * Process uploaded file and ingest to Weaviate
    */
-  async processUpload(filePath: string, clearExisting: boolean = false): Promise<{
+  async processUpload(filePath: string, originalName: string, clearExisting: boolean = false): Promise<{
     success: boolean;
     totalChunks: number;
     message: string;
@@ -49,9 +79,9 @@ export class UploadService {
         }
       }
 
-      // Read file content
-      const content = fs.readFileSync(filePath, 'utf-8');
-      console.log(`   Size: ${(content.length / 1024).toFixed(2)} KB`);
+      // Read file content (handles both text and PDF)
+      const content = await this.readFileContent(filePath, originalName);
+      console.log(`   Extracted text size: ${(content.length / 1024).toFixed(2)} KB`);
 
       // Chunk the document
       console.log('✂️  Chunking document...');
@@ -105,8 +135,13 @@ export class UploadService {
     }
 
     // Check file type
-    const allowedMimeTypes = ['text/plain', 'text/markdown', 'application/octet-stream'];
-    const allowedExtensions = ['.txt', '.md', '.markdown'];
+    const allowedMimeTypes = [
+      'text/plain',
+      'text/markdown',
+      'application/pdf',
+      'application/octet-stream'
+    ];
+    const allowedExtensions = ['.txt', '.md', '.markdown', '.pdf'];
 
     const hasValidMimeType = allowedMimeTypes.includes(file.mimetype);
     const hasValidExtension = allowedExtensions.some(ext =>
@@ -116,7 +151,7 @@ export class UploadService {
     if (!hasValidMimeType && !hasValidExtension) {
       return {
         valid: false,
-        error: 'Invalid file type. Only .txt and .md files are supported',
+        error: 'Invalid file type. Only .txt, .md, and .pdf files are supported',
       };
     }
 

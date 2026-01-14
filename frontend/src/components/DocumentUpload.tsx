@@ -16,8 +16,13 @@ export const DocumentUpload = ({ onUploadSuccess }: DocumentUploadProps) => {
     const selectedFile = e.target.files?.[0];
     if (selectedFile) {
       // Validate file type
-      if (!selectedFile.name.endsWith('.txt') && !selectedFile.name.endsWith('.md')) {
-        setError('Please select a .txt or .md file');
+      const validExtensions = ['.txt', '.md', '.pdf'];
+      const isValid = validExtensions.some(ext =>
+        selectedFile.name.toLowerCase().endsWith(ext)
+      );
+
+      if (!isValid) {
+        setError('Please select a .txt, .md, or .pdf file');
         setFile(null);
         return;
       }
@@ -82,7 +87,7 @@ export const DocumentUpload = ({ onUploadSuccess }: DocumentUploadProps) => {
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-semibold text-gray-900">Upload New Document</h2>
         <div className="text-xs text-gray-500">
-          .txt or .md files, max 10MB
+          .txt, .md, or .pdf files, max 10MB
         </div>
       </div>
 
@@ -141,7 +146,7 @@ export const DocumentUpload = ({ onUploadSuccess }: DocumentUploadProps) => {
         <input
           id="file-input"
           type="file"
-          accept=".txt,.md"
+          accept=".txt,.md,.pdf"
           onChange={handleFileChange}
           className="hidden"
           disabled={isUploading}
