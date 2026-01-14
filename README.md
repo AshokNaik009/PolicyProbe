@@ -100,6 +100,12 @@ The application will be available at:
 - **Frontend**: http://localhost:8084
 - **Backend API**: http://localhost:3002
 
+**Or Upload Documents from the UI:**
+- Click "Upload Document" button in the header
+- Select a .txt or .md file (max 10MB)
+- Choose whether to clear existing documents
+- Upload and watch real-time processing!
+
 ## 📊 Demo Query
 
 Try this query to see structural retrieval in action:
@@ -215,9 +221,28 @@ Combines:
 - Answer cites specific sources (e.g., "According to Source 1...")
 - Trust through transparency
 
+### 5. Document Upload from UI
+
+- **Upload Button**: Click "Upload Document" in the header
+- **Drag & Drop**: Drag files directly to the upload zone
+- **File Validation**: Automatic validation for .txt/.md files, max 10MB
+- **Real-time Processing**: Watch progress as document is chunked and indexed
+- **Clear Existing**: Option to replace all indexed data with new document
+- **Auto Schema**: Creates Weaviate schema automatically if needed
+
 ## 📝 Adding Your Own Documents
 
-### 1. Prepare Your Document
+### Option 1: Upload from UI (Recommended)
+
+1. Click **"Upload Document"** button in the header
+2. Select or drag a .txt or .md file (max 10MB)
+3. Choose whether to clear existing documents
+4. Click **"Upload & Ingest Document"**
+5. Watch real-time progress and see chunk count update
+
+### Option 2: Command Line Upload
+
+#### 1. Prepare Your Document
 
 Ensure your document has clear hierarchical structure using Markdown headings:
 
@@ -240,13 +265,13 @@ Or numbered format:
 Content paragraphs here...
 ```
 
-### 2. Place in sample-data/
+#### 2. Place in sample-data/
 
 ```bash
 cp your-policy.txt sample-data/
 ```
 
-### 3. Ingest
+#### 3. Ingest
 
 ```bash
 npm run ingest -- --file=your-policy.txt --clear
