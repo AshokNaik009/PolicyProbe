@@ -1,10 +1,11 @@
 import express, { Application } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
 import policyRoutes from './routes/policy';
 
-// Load environment variables
-dotenv.config();
+// Load environment variables from root directory
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 const app: Application = express();
 const PORT = process.env.PORT || 3002;

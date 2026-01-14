@@ -2,8 +2,10 @@ import { getWeaviateClient, POLICY_SEGMENT_CLASS } from '../config/weaviate';
 import { QueryResponse, RetrievedContext } from '../types';
 import Groq from 'groq-sdk';
 import dotenv from 'dotenv';
+import path from 'path';
 
-dotenv.config();
+// Load environment variables from root directory
+dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
 export class QueryService {
   private client = getWeaviateClient();
