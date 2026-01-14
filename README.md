@@ -102,9 +102,9 @@ The application will be available at:
 
 **Or Upload Documents from the UI:**
 - Click "Upload Document" button in the header
-- Select a .txt or .md file (max 10MB)
+- Select a .txt, .md, or .pdf file (max 10MB)
 - Choose whether to clear existing documents
-- Upload and watch real-time processing!
+- Upload and watch real-time processing with PDF text extraction!
 
 ## 📊 Demo Query
 
@@ -225,7 +225,8 @@ Combines:
 
 - **Upload Button**: Click "Upload Document" in the header
 - **Drag & Drop**: Drag files directly to the upload zone
-- **File Validation**: Automatic validation for .txt/.md files, max 10MB
+- **Multi-Format Support**: .txt, .md, and .pdf files (max 10MB)
+- **PDF Text Extraction**: Automatic text extraction from PDF documents
 - **Real-time Processing**: Watch progress as document is chunked and indexed
 - **Clear Existing**: Option to replace all indexed data with new document
 - **Auto Schema**: Creates Weaviate schema automatically if needed
@@ -235,10 +236,11 @@ Combines:
 ### Option 1: Upload from UI (Recommended)
 
 1. Click **"Upload Document"** button in the header
-2. Select or drag a .txt or .md file (max 10MB)
+2. Select or drag a .txt, .md, or .pdf file (max 10MB)
 3. Choose whether to clear existing documents
 4. Click **"Upload & Ingest Document"**
-5. Watch real-time progress and see chunk count update
+5. Watch real-time progress (with automatic PDF text extraction)
+6. See chunk count update when complete
 
 ### Option 2: Command Line Upload
 
