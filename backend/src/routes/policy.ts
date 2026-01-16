@@ -3,10 +3,12 @@ import multer from 'multer';
 import path from 'path';
 import { QueryService } from '../services/query';
 import { UploadService } from '../services/upload';
+import { IngestionService } from '../services/ingestion';
 
 const router = Router();
 const queryService = new QueryService();
 const uploadService = new UploadService();
+const ingestionService = new IngestionService();
 
 // Configure multer for file uploads
 const upload = multer({
@@ -111,6 +113,29 @@ router.post('/upload', upload.single('file'), async (req: Request, res: Response
     res.status(500).json({
       success: false,
       error: 'Failed to process upload',
+      message: error instanceof Error ? error.message : 'Unknown error',
+    });
+  }
+});
+
+/**
+ * DELETE /api/clear-data
+ * Clear all indexed data from Weaviate
+ */
+router.delete('/clear-data', async (req: Request, res: Response) => {
+  try {
+    console.log('🗑️  API: Clearing all data...');
+    await ingestionService.clearAll();
+
+    res.json({
+      success: true,
+      message: 'All data cleared successfully',
+    });
+  } catch (error) {
+    console.error('Clear data error:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Failed to clear data',
       message: error instanceof Error ? error.message : 'Unknown error',
     });
   }

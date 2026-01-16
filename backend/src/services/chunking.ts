@@ -210,8 +210,40 @@ export class StructuralChunker {
     console.log(`   Found ${sections.length} top-level sections`);
 
     console.log('✂️  Creating structural chunks...');
-    const chunks = this.createStructuralChunks(sections, sourcePage);
+    let chunks = this.createStructuralChunks(sections, sourcePage);
+
+    // Fallback: if no sections found (no headings), chunk entire document by paragraphs
+    if (chunks.length === 0 && content.trim().length > 0) {
+      console.log('   No structured sections found. Using paragraph-based chunking...');
+      chunks = this.chunkByParagraphs(content, sourcePage);
+    }
+
     console.log(`   Created ${chunks.length} chunks with metadata\n`);
+
+    return chunks;
+  }
+
+  /**
+   * Fallback chunking for documents without structured headings
+   * Splits document into paragraph-based chunks
+   */
+  private chunkByParagraphs(content: string, sourcePage: number = 1): DocumentChunk[] {
+    const chunks: DocumentChunk[] = [];
+    const paragraphs = this.splitIntoParagraphs(content);
+
+    paragraphs.forEach((paragraph, index) => {
+      if (paragraph.length > 20) {
+        chunks.push({
+          content: paragraph,
+          metadata: {
+            parent_heading: 'Document',
+            top_level_section: 'Document',
+            section_path: `${index + 1}`,
+            source_page: sourcePage,
+          },
+        });
+      }
+    });
 
     return chunks;
   }

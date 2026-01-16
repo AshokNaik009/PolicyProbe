@@ -9,7 +9,8 @@
     "start": "node dist/index.js",
     "setup:schema": "tsx scripts/setup-schema.ts",
     "ingest": "tsx scripts/ingest.ts",
-    "test:query": "tsx scripts/test-query.ts"
+    "test:query": "tsx scripts/test-query.ts",
+    "clear:data": "tsx scripts/clear-data.ts"
   },
   "dependencies": {
     "@types/multer": "^2.0.0",

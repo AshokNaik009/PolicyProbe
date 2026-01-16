@@ -353,9 +353,7 @@ Contributions are welcome! Areas for contribution:
 - Documentation improvements
 - Bug fixes and testing
 
-## License
 
-MIT License - see LICENSE file for details.
 
 ## Acknowledgments
 

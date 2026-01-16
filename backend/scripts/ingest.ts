@@ -10,18 +10,27 @@ async function ingestDocument() {
   console.log('=====================================\n');
 
   try {
-    // Get file path from command line or use default
+    // Get file path from command line
     const args = process.argv.slice(2);
     const fileArg = args.find((arg) => arg.startsWith('--file='));
-    const fileName = fileArg ? fileArg.split('=')[1] : 'test.txt';
 
+    if (!fileArg) {
+      console.error('❌ No file specified');
+      console.log('\nUsage: npm run ingest -- --file=your-document.txt');
+      console.log('\nNote: Place your document in the sample-data/ directory first.\n');
+      console.log('Alternatively, use the web UI to upload documents directly.\n');
+      process.exit(1);
+    }
+
+    const fileName = fileArg.split('=')[1];
     const filePath = path.join(__dirname, '../../sample-data', fileName);
 
     // Check if file exists
     if (!fs.existsSync(filePath)) {
       console.error(`❌ File not found: ${filePath}`);
       console.log('\nUsage: npm run ingest -- --file=your-document.txt');
-      console.log('Default: npm run ingest (uses test.txt)\n');
+      console.log('\nNote: Place your document in the sample-data/ directory first.\n');
+      console.log('Alternatively, use the web UI to upload documents directly.\n');
       process.exit(1);
     }
 

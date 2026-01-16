@@ -25,4 +25,9 @@ export const policyApi = {
     const response = await api.get('/health');
     return response.data;
   },
+
+  async clearData(): Promise<{ success: boolean; message: string }> {
+    const response = await api.delete('/clear-data');
+    return response.data;
+  },
 };
